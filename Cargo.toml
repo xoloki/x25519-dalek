@@ -28,7 +28,7 @@ travis-ci = { repository = "dalek-cryptography/x25519-dalek", branch = "master"}
 features = ["nightly"]
 
 [dependencies]
-curve25519-dalek = { version = "1", default-features = false }
+curve25519-dalek = { git = "https://github.com/xoloki/curve25519-dalek", rev = "d42497c24c9a194c092343b19f01d44f9d5ccf40", default-features = false, features = ["u64_backend", "nightly", "alloc"] }
 rand_core = { version = "0.3", default-features = false }
 clear_on_drop = { version = "0.2" }
 
@@ -43,6 +43,7 @@ harness = false
 [features]
 default = ["std", "u64_backend"]
 std = ["curve25519-dalek/std"]
+alloc = ["rand_core/alloc"]
 nightly = ["curve25519-dalek/nightly", "clear_on_drop/nightly"]
 u64_backend = ["curve25519-dalek/u64_backend"]
 u32_backend = ["curve25519-dalek/u32_backend"]
